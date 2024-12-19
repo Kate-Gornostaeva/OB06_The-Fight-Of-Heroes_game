@@ -37,6 +37,15 @@ class Hero:
             else:
                 print("Неверный выбор. Меч, Лук или Щит?")
 
+
+    def attack(self, other):
+        self.attack_power = random.randint(5, 20)
+        damage = self.attack_damage(other)
+        other.health -= self.attack_power
+        print(f"{self.name} атакует {other.name}!\n {other.name} нанесен урон {self.attack_power}.\nОстаток здоровья {other.health}\n")
+
+
+
     def attack_damage(self, other):
         if self.weapon == other.weapon:
             damage = self.attack_power - other.attack_power
@@ -58,11 +67,6 @@ class Hero:
             return damage
 
 
-    def attack(self, other):
-        self.attack_power = random.randint(5, 20)
-        damage = self.attack_damage(other)
-        other.health -= self.attack_power
-        print(f"{self.name} атакует {other.name}!\n {other.name} нанесен урон {self.attack_power}.\nОстаток здоровья {other.health}\n")
 
 
     def is_alive(self):
